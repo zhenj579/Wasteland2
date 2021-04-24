@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e02fff62c240344b570ccc41e2c395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1324856110}
   runSpeed: 500
 --- !u!1 &1898151084
 GameObject:
