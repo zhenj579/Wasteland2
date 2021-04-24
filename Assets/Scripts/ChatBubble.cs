@@ -12,7 +12,7 @@ public class ChatBubble : MonoBehaviour
         textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
     }
     private void Start(){
-        Setup("Jump in the water and go collect trash!! >:)");
+        Setup("We must help sustain our enviorment! jump into the water and collect trash!");
     }
     private void Setup(string text){
         textMeshPro.SetText(text);
