@@ -39,4 +39,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal, vertical).normalized * runSpeed * Time.deltaTime;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Trash"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
