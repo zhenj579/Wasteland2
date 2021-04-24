@@ -24,6 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        rb.velocity = new Vector2(horizontal, vertical).normalized * runSpeed * Time.deltaTime;
     }
 }
