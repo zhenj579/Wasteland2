@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Transform trans;
+    public Camera cam;
 
     private float horizontal;
     private float vertical;
@@ -24,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         Vector2 mousePos = Input.mousePosition;
-        mousePos = Camera.current.ScreenToWorldPoint(mousePos);
+        mousePos = cam.ScreenToWorldPoint(mousePos);
+        mousePos -= (Vector2)trans.position;
 
         if (mousePos != Vector2.zero)
         {
