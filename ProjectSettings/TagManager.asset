@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerGoingDown
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: moveScene
+    uniqueID: 3225827093
+    locked: 0
   - name: background
     uniqueID: 4168471333
     locked: 0
