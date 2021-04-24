@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DocAbove.unity
+    guid: 431b592a2a0dcaa40b518f1c986a9127
+  - enabled: 1
+    path: Assets/Scenes/underwaterScene.unity
+    guid: fbd45fc07ce64a54c81dcead0803266d
   m_configObjects: {}
