@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal, vertical).normalized * runSpeed * Time.deltaTime;
-        Debug.Log(rb.position);
     }
 
     void OnTriggerEnter2D(Collider2D other)

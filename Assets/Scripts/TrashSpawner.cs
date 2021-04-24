@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
@@ -14,9 +15,11 @@ public class TrashSpawner : MonoBehaviour
         SpriteRenderer sr = trash.GetComponent<SpriteRenderer>();
         BoxCollider2D bc = trash.GetComponent<BoxCollider2D>();
         bc.size = new Vector2(1, 1);
-        for (int i = 0; i < 32; i++)
+
+        for (int i = 0; i < 500; i++)
         {
             int random = Random.Range(0, 3);
+
             if (random == 0)
             {
                 sr.sprite = plasticBag;
@@ -29,8 +32,11 @@ public class TrashSpawner : MonoBehaviour
             {
                 sr.sprite = plasticBottle;
             }
-            Instantiate(trash, new Vector3(Random.Range(-16, 16), Random.Range(-8, 8), -1), Quaternion.identity);
+
+            Instantiate(trash, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
         }
+
+        Destroy(this);
     }
 
     // Update is called once per frame
