@@ -16,7 +16,6 @@ public class PlayerFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(player.position);
         cam.position = new Vector3(player.position.x, player.position.y, cam.position.z);
     }
 }
