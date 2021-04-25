@@ -24,7 +24,7 @@ public class TurtleChatBubble : MonoBehaviour
         {
             thisObj.SetActive(true);
         }
-        Setup("Thanks for cleaning up the ocean!");
+        Setup("Thanks for cleaning up the ocean! Head up to the surface if you want to help collect more trash!");
         current = GetComponent<Transform>();
     }
     private void Setup(string text){
