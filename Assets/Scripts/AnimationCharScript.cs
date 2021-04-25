@@ -24,6 +24,17 @@ public class AnimationCharScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)){
             body.AddForce(new Vector2(0,-1000));
         }
-        
+
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            if (other.CompareTag("Trash") && Input.GetKey(KeyCode.E))
+            {
+                other.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 10000, 0));
+            }
+        }
     }
 }
