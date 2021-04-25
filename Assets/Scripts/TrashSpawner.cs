@@ -23,14 +23,17 @@ public class TrashSpawner : MonoBehaviour
             if (random == 0)
             {
                 sr.sprite = plasticBag;
+                trash.name = "plastic_bag";
             }
             if (random == 1)
             {
                 sr.sprite = can;
+                trash.name = "can";
             }
             if (random == 2)
             {
                 sr.sprite = plasticBottle;
+                trash.name = "plastic_bottle";
             }
             Instantiate(trash, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
         }
