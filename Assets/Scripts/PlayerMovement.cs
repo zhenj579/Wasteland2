@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,17 +10,14 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     public Camera cam;
 
-    private GameObject chatBubble;
     private float horizontal;
     private float vertical;
     private bool end;
     private bool walk;
-
     public float runSpeed;
 
     void Start()
     {
-        chatBubble = GameObject.Find("ChatBubble");
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
@@ -30,13 +28,15 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
         if(!end && GameObject.FindGameObjectsWithTag("Trash").Length == 0)
         {
             end = true;
+            Scene scene = SceneManager.GetActiveScene();
+            var game_objects = new List<GameObject>();
+            scene.GetRootGameObjects(game_objects);
+            GameObject chatBubble = game_objects[3];
             chatBubble.SetActive(true);
         }
-
         if(horizontal < 0)
         {
             transform.rotation = Quaternion.AngleAxis(180, Vector3.up) * Quaternion.AngleAxis(-35, Vector3.forward);

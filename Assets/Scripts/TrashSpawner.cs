@@ -20,6 +20,8 @@ public class TrashSpawner : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        GameObject thisObj = GameObject.Find("ChatBubble");
+        thisObj.SetActive(false);
         plastic_bag.name = "plastic_bag";
         can.name = "can";
         plastic_bottle.name = "plastic_bottle";
@@ -36,7 +38,7 @@ public class TrashSpawner : MonoBehaviour
         canCollider.size = colliderSize;
         bagCollider = plastic_bag.GetComponent<BoxCollider2D>();
         bagCollider.size = colliderSize;        
-        for (int i = 0; i < 64; i++)
+        for (int i = 0; i < 2; i++)
         {
             int randNum = Random.Range(0,3);
             if(randNum == 0)
@@ -58,6 +60,5 @@ public class TrashSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 }
