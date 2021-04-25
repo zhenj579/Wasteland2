@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Transform trans;
+    private SpriteRenderer sr;
     public Camera cam;
 
     private float horizontal;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -24,15 +26,28 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        Vector2 mousePos = Input.mousePosition;
-        mousePos = cam.ScreenToWorldPoint(mousePos);
-        mousePos -= (Vector2)trans.position;
-
-        if (mousePos != Vector2.zero)
+        if(horizontal < 0)
         {
-            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            sr.flipX = false;
+            transform.rotation = Quaternion.AngleAxis(35, Vector3.forward);
+        } else if(horizontal > 0)
+        {
+            sr.flipX = true;
+            transform.rotation = Quaternion.AngleAxis(-35, Vector3.forward);
+        } else
+        {
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         }
+
+        //Vector2 mousePos = Input.mousePosition;
+        //mousePos = cam.ScreenToWorldPoint(mousePos);
+        //mousePos -= (Vector2)trans.position;
+
+        //if (mousePos != Vector2.zero)
+        //{
+        //    float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        //    transform.rotation = Quaternion.AngleAxis(angle, (mousePos.x < 0 ? Vector3.back : Vector3.forward));
+        //}
     }
 
     private void FixedUpdate()
