@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             var game_objects = new List<GameObject>();
             scene.GetRootGameObjects(game_objects);
-            GameObject chatBubble = game_objects[3];
+            GameObject chatBubble = game_objects[2];
             chatBubble.SetActive(true);
         }
         if(horizontal < 0)
