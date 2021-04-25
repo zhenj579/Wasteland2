@@ -5,37 +5,52 @@ using UnityEngine;
 
 public class TrashSpawner : MonoBehaviour
 {
-    public GameObject trash;
-    public Sprite plasticBag;
-    public Sprite can;
-    public Sprite plasticBottle;
+    public GameObject plastic_bottle;
+    public GameObject plastic_bag;
+    public GameObject can;
+    public Sprite plasticBagSprite;
+    public Sprite canSprite;
+    public Sprite plasticBottleSprite;
+    private SpriteRenderer bottleRenderer;
+    private BoxCollider2D bottleCollider;
+    private SpriteRenderer bagRenderer;
+    private BoxCollider2D bagCollider;
+    private SpriteRenderer canRenderer;
+    private BoxCollider2D canCollider;        
     // Start is called before the first frame update
     public void Start()
     {
-        SpriteRenderer sr = trash.GetComponent<SpriteRenderer>();
-        BoxCollider2D bc = trash.GetComponent<BoxCollider2D>();
-        bc.size = new Vector2(1, 1);
-
+        plastic_bag.name = "plastic_bag";
+        can.name = "can";
+        plastic_bottle.name = "plastic_bottle";
+        bottleRenderer = plastic_bottle.GetComponent<SpriteRenderer>();
+        bagRenderer = plastic_bag.GetComponent<SpriteRenderer>();
+        canRenderer = can.GetComponent<SpriteRenderer>();
+        bottleRenderer.sprite = plasticBottleSprite;
+        bagRenderer.sprite = plasticBagSprite;
+        canRenderer.sprite = canSprite;
+        Vector2 colliderSize = new Vector2(1,1);
+        bottleCollider = plastic_bottle.GetComponent<BoxCollider2D>();
+        bottleCollider.size = colliderSize;
+        canCollider = can.GetComponent<BoxCollider2D>();
+        canCollider.size = colliderSize;
+        bagCollider = plastic_bag.GetComponent<BoxCollider2D>();
+        bagCollider.size = colliderSize;        
         for (int i = 0; i < 64; i++)
         {
-            int random = Random.Range(0, 3);
-
-            if (random == 0)
+            int randNum = Random.Range(0,3);
+            if(randNum == 0)
             {
-                sr.sprite = plasticBag;
-                trash.name = "plastic_bag";
+                Instantiate(plastic_bottle, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
             }
-            if (random == 1)
+            else if(randNum == 1)
             {
-                sr.sprite = can;
-                trash.name = "can";
+                Instantiate(can, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
             }
-            if (random == 2)
+            else
             {
-                sr.sprite = plasticBottle;
-                trash.name = "plastic_bottle";
+                Instantiate(plastic_bag, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
             }
-            Instantiate(trash, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
         }
         Destroy(this);
     }
