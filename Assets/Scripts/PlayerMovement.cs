@@ -39,15 +39,6 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
         }
 
-        //Vector2 mousePos = Input.mousePosition;
-        //mousePos = cam.ScreenToWorldPoint(mousePos);
-        //mousePos -= (Vector2)trans.position;
-
-        //if (mousePos != Vector2.zero)
-        //{
-        //    float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.AngleAxis(angle, (mousePos.x < 0 ? Vector3.back : Vector3.forward));
-        //}
     }
 
     private void FixedUpdate()
