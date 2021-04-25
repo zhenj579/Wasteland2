@@ -22,7 +22,7 @@ public class AnimationCharScript : MonoBehaviour
             body.AddForce(new Vector2(0,500));
         }
         if(Input.GetKeyDown(KeyCode.S)){
-            body.AddForce(new Vector2(0,-500));
+            body.AddForce(new Vector2(0,-1000));
         }
         
     }
