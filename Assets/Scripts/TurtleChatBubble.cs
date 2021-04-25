@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class TurtleChatBubble : MonoBehaviour
 {
- private SpriteRenderer backgroundSpriteRenderer;
+    private SpriteRenderer backgroundSpriteRenderer;
     public Transform target;
     private Transform current;
     private TextMeshPro textMeshPro; 
@@ -22,12 +22,7 @@ public class TurtleChatBubble : MonoBehaviour
     
     void Update()
     {
-        current.position = new Vector3(target.position.x,target.position.y,target.position.z);
-
+        current.position = new Vector3(target.position.x + 55, target.position.y - 8, target.position.z);
     }
 
-    void LateUpdate()
-    {
-        current.position = new Vector3(target.position.x,target.position.y,target.position.z);
-    }
 }
