@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
     public Camera cam;
 
+    private GameObject chatBubble;
     private float horizontal;
     private float vertical;
     private bool end;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        chatBubble = GameObject.Find("ChatBubble");
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
@@ -27,7 +29,11 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
+        if(!end && GameObject.FindGameObjectsWithTag("Trash").Length == 0)
+        {
+            end = true;
+            chatBubble.SetActive(true);
+        }
         if(horizontal < 0)
         {
             sr.flipX = false;
@@ -50,11 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!end && GameObject.FindGameObjectsWithTag("Trash").Length == 0)
-        {
-            end = true;
-            
-        }
+
         if(other.CompareTag("Trash"))
         {
             Destroy(other.gameObject);

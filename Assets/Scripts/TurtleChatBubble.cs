@@ -7,13 +7,24 @@ public class TurtleChatBubble : MonoBehaviour
     private SpriteRenderer backgroundSpriteRenderer;
     public Transform target;
     private Transform current;
-    private TextMeshPro textMeshPro; 
+    private TextMeshPro textMeshPro;
+    private bool started = true; 
     private void Awake(){
         backgroundSpriteRenderer = transform.Find("Chat").GetComponent<SpriteRenderer>();
         textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
     }
     private void Start(){
-        Setup("sdfgdsfgdsfgsdfgsdfgg");
+        GameObject thisObj = GameObject.Find("ChatBubble");
+        if(started)
+        {
+            thisObj.SetActive(false);
+            started = false;
+        }
+        else
+        {
+            thisObj.SetActive(true);
+        }
+        Setup("Thanks for cleaning up the ocean!");
         current = GetComponent<Transform>();
     }
     private void Setup(string text){
