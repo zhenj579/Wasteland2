@@ -38,7 +38,7 @@ public class TrashSpawner : MonoBehaviour
         canCollider.size = colliderSize;
         bagCollider = plastic_bag.GetComponent<BoxCollider2D>();
         bagCollider.size = colliderSize;        
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 32; i++)
         {
             int randNum = Random.Range(0,3);
             if(randNum == 0)
