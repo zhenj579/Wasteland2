@@ -650,7 +650,6 @@ GameObject:
   m_Component:
   - component: {fileID: 736467370}
   - component: {fileID: 736467369}
-  - component: {fileID: 736467371}
   - component: {fileID: 736467372}
   m_Layer: 0
   m_Name: background
@@ -724,18 +723,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &736467371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736467368}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba03b40c3ea0004e86d881b0bd01d6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &736467372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,10 +735,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e01c587872f4cc439c8439443d0ab56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trash: {fileID: 6682353516366078222, guid: e097694a2028bbd4d81b993256e685fd, type: 3}
-  plasticBag: {fileID: 21300000, guid: f4ea7ee854c7aee4eb5b3fa977868b19, type: 3}
-  can: {fileID: 21300000, guid: 0417e5582ac024a468b3d6924297d33f, type: 3}
-  plasticBottle: {fileID: 21300000, guid: 5bcb33d2c9809064696a94159879302c, type: 3}
+  plastic_bottle: {fileID: 5980536496316883669, guid: a751b0b8deffffd4188f28733fbedb1a, type: 3}
+  plastic_bag: {fileID: 6682353516366078222, guid: e097694a2028bbd4d81b993256e685fd, type: 3}
+  can: {fileID: 3058915687864103188, guid: a70e22a0cf36c0a499332db2be624309, type: 3}
+  plasticBagSprite: {fileID: 21300000, guid: 5bcb33d2c9809064696a94159879302c, type: 3}
+  canSprite: {fileID: 21300000, guid: 0417e5582ac024a468b3d6924297d33f, type: 3}
+  plasticBottleSprite: {fileID: 21300000, guid: f4ea7ee854c7aee4eb5b3fa977868b19, type: 3}
 --- !u!1 &1384238617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5835253664162813063, guid: 847d64d8e4a633e4387f7a1aa5055094, type: 3}
