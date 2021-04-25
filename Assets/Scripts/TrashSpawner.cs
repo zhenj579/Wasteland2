@@ -16,7 +16,7 @@ public class TrashSpawner : MonoBehaviour
         BoxCollider2D bc = trash.GetComponent<BoxCollider2D>();
         bc.size = new Vector2(1, 1);
 
-        for (int i = 0; i < 64; i++)
+        for (int i = 0; i < 1; i++)
         {
             int random = Random.Range(0, 3);
 
