@@ -6,10 +6,13 @@ public class AnimationCharScript : MonoBehaviour
 {
     public Animator animator;
     private Rigidbody2D body;
-    // Start is called before the first frame update
+    public AudioSource audioSource;
+    
+        // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();  
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class AnimationCharScript : MonoBehaviour
         {
             if (other.CompareTag("Trash") && Input.GetKey(KeyCode.E))
             {
+                audioSource.time = 1.60f;
+                audioSource.Play();
                 other.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 100, 0));
             }
         }
