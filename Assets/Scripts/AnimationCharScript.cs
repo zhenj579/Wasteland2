@@ -33,7 +33,7 @@ public class AnimationCharScript : MonoBehaviour
         {
             if (other.CompareTag("Trash") && Input.GetKey(KeyCode.E))
             {
-                other.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 10000, 0));
+                other.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 100, 0));
             }
         }
     }
