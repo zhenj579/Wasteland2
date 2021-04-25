@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
     private bool end;
+    private bool walk;
 
     public float runSpeed;
 
@@ -29,22 +30,28 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
         if(!end && GameObject.FindGameObjectsWithTag("Trash").Length == 0)
         {
             end = true;
             chatBubble.SetActive(true);
         }
+
         if(horizontal < 0)
         {
-            sr.flipX = false;
-            transform.rotation = Quaternion.AngleAxis(35, Vector3.forward);
+            transform.rotation = Quaternion.AngleAxis(180, Vector3.up) * Quaternion.AngleAxis(-35, Vector3.forward);
+            walk = true;
         } else if(horizontal > 0)
         {
-            sr.flipX = true;
-            transform.rotation = Quaternion.AngleAxis(-35, Vector3.forward);
+            transform.rotation = Quaternion.AngleAxis(0, Vector3.up) * Quaternion.AngleAxis(-35, Vector3.forward);
+            walk = true;
         } else
         {
-            transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
+            if (walk)
+            {
+                transform.rotation *= Quaternion.AngleAxis(35, Vector3.forward);
+                walk = false;
+            }
         }
 
     }
