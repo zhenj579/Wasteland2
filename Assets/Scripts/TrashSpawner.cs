@@ -10,7 +10,7 @@ public class TrashSpawner : MonoBehaviour
     public Sprite can;
     public Sprite plasticBottle;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         SpriteRenderer sr = trash.GetComponent<SpriteRenderer>();
         BoxCollider2D bc = trash.GetComponent<BoxCollider2D>();
@@ -32,16 +32,14 @@ public class TrashSpawner : MonoBehaviour
             {
                 sr.sprite = plasticBottle;
             }
-
             Instantiate(trash, new Vector3(Random.Range(-15, 16), Random.Range(-7, 8), -1), Quaternion.identity);
         }
-
         Destroy(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

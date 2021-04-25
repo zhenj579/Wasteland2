@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    private bool end;
 
     public float runSpeed;
 
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         trans = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
+        end = false;
     }
 
     void Update()
@@ -48,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(!end && GameObject.FindGameObjectsWithTag("Trash").Length == 0)
+        {
+            end = true;
+            
+        }
         if(other.CompareTag("Trash"))
         {
             Destroy(other.gameObject);

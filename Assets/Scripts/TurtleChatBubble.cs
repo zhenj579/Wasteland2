@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-public class ChatBubble : MonoBehaviour
+public class TurtleChatBubble : MonoBehaviour
 {
-    private SpriteRenderer backgroundSpriteRenderer;
+ private SpriteRenderer backgroundSpriteRenderer;
     public Transform target;
     private Transform current;
     private TextMeshPro textMeshPro; 
@@ -14,7 +13,7 @@ public class ChatBubble : MonoBehaviour
         textMeshPro = transform.Find("Text").GetComponent<TextMeshPro>();
     }
     private void Start(){
-        Setup("We must help sustain our environment! Jump into the water and collect trash!");
+        Setup("sdfgdsfgdsfgsdfgsdfgg");
         current = GetComponent<Transform>();
     }
     private void Setup(string text){
@@ -23,6 +22,12 @@ public class ChatBubble : MonoBehaviour
     
     void Update()
     {
-        current.position = new Vector3(target.position.x+15, target.position.y+5, target.position.z);     
+        current.position = new Vector3(target.position.x,target.position.y,target.position.z);
+
+    }
+
+    void LateUpdate()
+    {
+        current.position = new Vector3(target.position.x,target.position.y,target.position.z);
     }
 }
