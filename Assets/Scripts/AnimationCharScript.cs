@@ -27,7 +27,11 @@ public class AnimationCharScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.S)){
             body.AddForce(new Vector2(0,-1000));
         }
-
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            audioSource.time = 1.60f;
+            audioSource.Play();
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -36,8 +40,8 @@ public class AnimationCharScript : MonoBehaviour
         {
             if (other.CompareTag("Trash") && Input.GetKey(KeyCode.E))
             {
-                audioSource.time = 1.60f;
-                audioSource.Play();
+                //audioSource.time = 1.60f;
+                //audioSource.Play();
                 other.GetComponent<Rigidbody2D>().AddForce(new Vector2(Input.GetAxis("Horizontal") * 100, 0));
             }
         }
